@@ -4,17 +4,24 @@ x0 = input('Ingrese el disparo inicial: ');
 e = input('Ingrese el error permisible: ');
 num = input('Ingrese el numero de iteraciones: ');
 
-for i= 1:num
-  x1 = f(x0); 
-  %fprintf('%d\t\t%.6f\n', n, x1);
+k = 0;
+i = 1;
+
+while k == 0
+  x1 = f(x0);
   if abs(x1 - x0) < e
-    fprintf('Convergencia alcanzada en %d iteraciones.\n', i);
-    fprintf('Raiz: %d',x1);
-    break;
+    r = x1;
+    fprintf('La raiz es: \n' );
+    r
+    k = 1;
+  else
+    if i < num
+      i = i + 1;
+      x0 = x1;
+    else
+      fprintf('El metodo no convergio en %d iteraciones\n', num);
+      k = 1;
+    end
   end
-  x0 = x1;
 end
 
-if i == num
-    disp('El método no convergió dentro del número máximo de iteraciones.');
-end

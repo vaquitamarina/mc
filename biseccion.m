@@ -2,27 +2,48 @@ f_input = input('Ingrese la funcion: ', 's');
 f = str2func(['@(x) ', f_input]);
 a = input('Ingrese el limite inferior del intervalo: ');
 b = input('Ingrese el limite supeior del intervalo: ');
+
+for i=1:20
+  if(f(a)*f(b) <= 0)
+    break;
+  end
+  if(f(a) * f(b) > 0)
+    fprintf('Ingrese otros limites.\n');
+    a = input('Ingrese el limite inferior del intervalo: ');
+    b = input('Ingrese el limite supeior del intervalo: ');
+  end
+end
+
+if i == 20
+  error('No se encontro la raiz en 20 iteraciones');
+end
+
 e = input('Ingrese el error permisible: ');
 
-if(f(a) * f(b) > 0)
-    error('Ingrese otros limites.');
+k = 0;
+while k == 0
+  c = (a+b)/2;
+  if f(a)*f(c) <= 0
+    if f(a) * f(c) == 0
+      if f(a) == 0
+        r = a;
+      else
+        r = c;
+      end
+      r
+      k = 1;
+    else
+      b = c;
+    end
+  else
+    a = c;
+  end
+  if k == 0
+    if abs(b-a) < e
+      r = (a+b)/2;
+      k = 1;
+    end
+  end
 end
 
-cont = 0;
-while (abs(b-a)>e)
-    m=(a+b)/2;
-    if (f(a)*f(m)<0)
-        b=m;
-    end
-    if (f(m)*f(b)<0)
-        a=m;
-    end
-    if (abs(f(m))<eps)
-        fprintf('\n la raiz es %f\n\n',m);
-        return
-    end
-    cont=cont+1;
-    fprintf('\n iteracion %d, intervalo[%f,%f]',cont,a,b);
-end
-
-fprintf('\n\n la raiz es %f\n\n',m);
+fprintf('\n\n la raiz es %f\n\n',r);
