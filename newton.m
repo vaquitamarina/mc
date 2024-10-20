@@ -15,6 +15,7 @@ while k == 0
   if abs(x1 - x0) < e
     r = x1;
     k = 1;
+    r
   else
     if i < num
       i = i + 1;
