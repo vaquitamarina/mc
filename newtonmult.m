@@ -1,13 +1,8 @@
 f_input = input('Ingrese las funciones, ej: [x(1)^2 + x(2)^2 - 1;x(1)^2 - x(2)]', 's');
 f = str2func(['@(x) ', f_input]);
 
-syms x;
-f_sym = str2sym(f_input);
-j_sym = jacobian(f_sym, x);
-j = matlabFunction(j_sym);
-
-j = matlabFunction(f_sym, 'Vars', {x});
-
+j_input = input('Ingrese las derivadas de las funciones, ej: [2*x(1), 2*x(2);2*x(1), -1]', 's');
+j = str2func(['@(x) ', j_input]);
 
 x0 = input('Introduce un vector inicial [x0, y0] (por ejemplo, [1, 0.5]): ');
 
