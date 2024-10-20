@@ -10,17 +10,22 @@ df_sym = diff(f_sym(x), x);
 f = matlabFunction(f_sym);
 df = matlabFunction(df_sym);
 
-for i=1:num
-  x1 = x0 - (f(x0)/df(x0));
-  if(abs(x1-x0)<e)
-    fprintf('Convergencia alcanzada en %d iteraciones.\n', i);
-    fprintf('Raiz: %d',x1);
-    break;
+i = 1;
+k = 0;
+while k == 0
+  x1 = x0 - f(x0)/df(x0);
+  if abs(x1 - x0) < e
+    r = x1;
+    k = 1;
+    r
+  else
+    if i < num
+      i = i + 1;
+      x0 = x1;
+    else
+      k = 1;
+      disp('El metodo no converge');
+    end
   end
 end
-
-if i == num
-  fprintf('El metodo no converge en %d iteraciones.\n', num);
-end
-
 
