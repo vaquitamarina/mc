@@ -5,7 +5,7 @@ x0 = input('Ingrese el disparo inicial: ');
 num = input('Ingrese el numero maximo de iteraciones: ');
 
 syms x
-df_sym = diff(f_sym(x), x);
+df_sym = diff(f_sym, x);
 
 f = matlabFunction(f_sym);
 df = matlabFunction(df_sym);

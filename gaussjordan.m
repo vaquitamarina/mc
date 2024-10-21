@@ -18,8 +18,7 @@ for i=1:n
         a(i,j) = a(i,j) / p;
     end
     b(i) = b(i) / p;
-    j = 1;
-    for i=1:n
+    for j=1:n
         if i~=j
             f = -a(j,i);
             for k=i:n

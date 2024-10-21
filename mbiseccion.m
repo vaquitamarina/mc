@@ -8,31 +8,30 @@ e = input('Ingrese el error permisible: ');
 for i=la:5:lb
   a = i;
   b = i+5;
-  if f(a)*f(b) > 0
-    break;
-  end
-  k = 0;
-  while k == 0
-    c = (a+b)/2;
-    if f(a)*f(c) <= 0
-      if f(a) * f(c) == 0
-        if f(a) == 0
-          r = a;
+  if f(a)*f(b) <= 0
+    k = 0;
+    while k == 0
+      c = (a+b)/2;
+      if f(a)*f(c) <= 0
+        if f(a) * f(c) == 0
+          if f(a) == 0
+            r = a;
+          else
+            r = c;
+          end
+          r
+          k = 1;
         else
-          r = c;
+          b = c;
         end
-        r
-        k = 1;
       else
-        b = c;
+        a = c;
       end
-    else
-      a = c;
-    end
-    if k == 0
-      if abs(b-a) < e
-        r = (a+b)/2;
-        k = 1;
+      if k == 0
+        if abs(b-a) < e
+          r = (a+b)/2;
+          k = 1;
+        end
       end
     end
   end

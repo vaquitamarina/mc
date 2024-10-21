@@ -1,15 +1,15 @@
 n = input('Ingrese el orden de la matriz: ');
 for i=1:n
-    for j=1:n
-        fprintf('Ingrese el valor de A(%d)(%d): ', i,j);
-        a(i,j) = input('');
-    end
+  for j=1:n
+    fprintf('Ingrese el valor de A(%d)(%d): ', i,j);
+    a(i,j) = input('');
+  end
 end
 
 fprintf('Ingrese el vector: \n');
 for i=1:n
-    fprintf('Ingrese el valor de B(%d): ', i);
-    b(i) = input('');
+  fprintf('Ingrese el valor de B(%d): ', i);
+  b(i) = input('');
 end
 
 for i=1:n-1
