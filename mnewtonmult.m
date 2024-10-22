@@ -18,13 +18,13 @@ for i = 1:num
   F_x = f(x0);
   J_x = j(x0);
   dx = -J_x \ F_x;  
-  x1 = x0 + dx';
+  x0 = x0 + dx';
   if norm(dx, inf) < e
     fprintf('Convergencia alcanzada en %d iteraciones.\n', i);
-    fprintf('Solución aproximada: [x, y] = [%d, %d]\n', x1(1), x1(2));
+    fprintf('Solucion aproximada: ');
+    x0
     break;
   end  
-  x0 = x1;
 end
 
 if(i == num)
