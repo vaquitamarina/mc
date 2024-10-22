@@ -4,7 +4,7 @@ la = input('Ingrese el limite inferior del intervalo: ');
 lb = input('Ingrese el limite supeior del intervalo: ');
 e = input('Ingrese el error permisible: ');
 
-
+k = 0;
 for i=la:5:lb
   a = i;
   b = i+5;
@@ -39,4 +39,10 @@ for i=la:5:lb
     break;
   end
 end
-fprintf('\n\n la raiz es %f\n\n',r);
+
+if (f(r) < e) && (-e < f(r))
+    fprintf('\n\n la raiz es %f\n\n',r);
+else
+    fprintf('\n\n Es una asintota %f\n\n',r);
+end
+
