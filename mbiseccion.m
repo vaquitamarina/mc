@@ -35,5 +35,8 @@ for i=la:5:lb
       end
     end
   end
+  if k == 1
+    break;
+  end
 end
 fprintf('\n\n la raiz es %f\n\n',r);
