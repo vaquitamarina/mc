@@ -19,13 +19,7 @@ if (det(a) ~= 0)
   end
 
   for i=1:n
-    %division entre 0
-    if a(i,i) == 0
-      for j=1:n
-        a(i,j) = a(i,j) + a(i+1,j);
-      end
-    end
-
+    
     p = a(i,i);
     for j=i:n
       a(i,j) = a(i,j) / p;
