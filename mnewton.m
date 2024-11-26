@@ -1,3 +1,6 @@
+clc
+clear
+
 f_input = input('Ingrese la funcion: ', 's');
 f_sym = str2sym(['@(x) ', f_input]);
 e = input('Ingrese el error permisible: ');
