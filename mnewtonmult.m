@@ -17,7 +17,7 @@ for i = 1:num
   J_x = subs(j_sym,v,x0);
   dx = -J_x \ F_x;  
   x0 = x0 + dx';
-  if norm(dx, inf) < e
+  if max(dx) < e
     fprintf('Solucion aproximada:\n');
     fprintf('%.10f\n', x0);
     break;
