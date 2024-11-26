@@ -1,3 +1,6 @@
+clc
+clear
+
 n = input('Ingrese el orden de la matriz: ');
 
 for i=1:n
